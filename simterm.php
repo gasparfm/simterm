@@ -27,7 +27,6 @@ class SimTermLoader
 	add_action('admin_menu', array(self::$st->settings(), 'register_settings_menu'));
 	add_action('admin_init', array('SimTermLoader', 'settingsInit'));
 	add_shortcode('simterm', array(self::$st, 'simterm_shortcode'));
-	//	add_shortcode( 'simterm', 'baztag_func' );    
     }
 
     public function settingsInit()
@@ -38,7 +37,3 @@ class SimTermLoader
 };
 
 SimTermLoader::Init();
-// [baztag]content[/baztag]
-function baztag_func( $atts, $content = '' ) {
-    return "content = $content";
-}
