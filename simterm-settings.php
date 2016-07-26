@@ -25,9 +25,9 @@ class SimTermSettings
     public function register()
     {
 	/* Settings registration  */
-	register_setting('simterm-settings', // Option group
-			 'simterm-global-theme',
-			 array($this, 'bool_sanitize'));
+	/* register_setting('simterm-settings', // Option group
+	   'simterm-global-theme',
+	   array($this, 'bool_sanitize')); */
 	register_setting('simterm-settings',
 			 'simterm-default-theme');
 	register_setting('simterm-settings',
@@ -45,11 +45,11 @@ class SimTermSettings
 
 	/* Config fields */
 	/* Just a demo field */
-	add_settings_field('simterm-global-theme', // setting name
-			   'Theme to use',// setting description
-			   array($this, 'config_global_theme'), // setting view callback
-			   'simterm-settings', // option group
-			   'simterm-global-settings'); // settings section
+	/* add_settings_field('simterm-global-theme', // setting name
+	   'Theme to use',// setting description
+	   array($this, 'config_global_theme'), // setting view callback
+	   'simterm-settings', // option group
+	   'simterm-global-settings'); // settings section */
 	/* Just a demo field */
 	add_option('simterm-type-prepend', '>');
 	add_option('simterm-command-prepend', '$#');
