@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: simterm\n"
+"POT-Creation-Date: 2016-08-01 17:25+0100\n"
+"PO-Revision-Date: 2016-08-01 17:26+0100\n"
+"Last-Translator: Gaspar Fernández <gaspar.fernandez@totaki.com>\n"
+"Language-Team: simterm <gaspar.fernandez@totaki.com>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: __;gettext;gettext_noop\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: simterm-settings.php:50
+msgid "Theme to use"
+msgstr "Tema a utilizar"
+
+#: simterm-settings.php:55
+msgid "Default delay between lines"
+msgstr "Retraso por defecto entre lineas"
+
+#: simterm-settings.php:60
+msgid "Command prepend character"
+msgstr "Carácter que introduce un comando"
+
+#: simterm-settings.php:65
+msgid "Type prepend character"
+msgstr "Carácter que introduce entrada de usuario"
+
+#: simterm-settings.php:110
+msgid "Regular"
+msgstr "Regular"
+
+#: simterm-settings.php:111
+msgid "Dark"
+msgstr "Oscuro"
+
+#: simterm-settings.php:112
+msgid "Light"
+msgstr "Claro"
+
+#: simterm-settings.php:113
+msgid "Blue"
+msgstr "Azul"
+
+#: simterm-settings.php:121
+msgid "Delay in milliseconds by default"
+msgstr "Retraso por defecto en milisegundos"
+
+#: simterm-settings.php:128
+msgid "Any of these characters may prepend a command input"
+msgstr ""
+"Cualquiera de estos caracteres puede dar paso a una introducción de un "
+"comando"
+
+#: simterm-settings.php:135
+msgid "Any of these characters may prepend a type input"
+msgstr ""
+"Cualquiera de estos caracteres puede dar paso a una introducción de datos "
+"por teclado"
+
+#: simterm.php:30
+msgid "Simulates terminal input/output for tutorials"
+msgstr ""
+"Simula la entrada y salida en una ventana de terminal. Perfecto para "
+"tutoriales."
+
+#: views/globalsettings.php:2
+msgid "SimTerm Options"
+msgstr "Opciones de Simterm"
+
+#: views/globalsettings.php:14
+#, php-format
+msgid ""
+"SimTerm by <a href=\"%1$s\"\">%2$s</a> using Show Your Terms by <a href="
+"\"%3$s\">%4$s</a>"
+msgstr ""
+"SimTerm por <a href=\"%1$s\"\">%2$s</a> utilizando Show Your Terms por <a "
+"href=\"%3$s\">%4$s</a>"
+
+#: views/settings/main.php:2
+msgid "You can edit SimTerm settings here"
+msgstr "Puedes configurar SimTerm desde aquí"

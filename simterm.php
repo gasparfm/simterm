@@ -3,10 +3,12 @@
  * Plugin Name: SimTerm
  * Plugin URI:  http://gaspar.totaki.com/en/php-project/simterm/
  * Description: Simulates terminal input/output for tutorials
- * Version: 0.1.0
+ * Version: 0.1.1
  * Author: Gaspar Fernández
  * Author URI: http://totaki.com/poesiabinaria/
  * License: GPL3
+ * Text Domain: simterm
+ * Domain Path: /languages/
  */
 
 require_once('mutils.php');
@@ -18,11 +20,15 @@ class SimTermLoader
 
     function Init()
     {
-	/* Incluimos nuestra clase */
+      /* Include main class */
 	$path = plugin_dir_path(__FILE__);
 	require_once($path.'simterm-core.php');
 	self::$st = new SimTerm;
-	/* Acciones de WordPress add_filter, add_option, register_option... */
+
+	/* Localization stuff */
+	/* Make po files autoupdate */
+	__('Simulates terminal input/output for tutorials', 'simterm');
+	add_action( 'admin_init', array('SimTermLoader', 'load_textdomain' ));
 
 	add_action('admin_menu', array(self::$st->settings(), 'register_settings_menu'));
 	add_action('admin_init', array('SimTermLoader', 'settingsInit'));
@@ -34,6 +40,11 @@ class SimTermLoader
 	$sett = self::$st->settings();
 	$sett->register();
     }
+
+    public function load_textdomain() {
+      load_plugin_textdomain( 'simterm', FALSE, dirname( plugin_basename( __FILE__ ) ).'/languages/' );
+    }
+
 };
 
 SimTermLoader::Init();

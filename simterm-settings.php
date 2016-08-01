@@ -25,9 +25,6 @@ class SimTermSettings
     public function register()
     {
 	/* Settings registration  */
-	/* register_setting('simterm-settings', // Option group
-	   'simterm-global-theme',
-	   array($this, 'bool_sanitize')); */
 	register_setting('simterm-settings',
 			 'simterm-default-theme');
 	register_setting('simterm-settings',
@@ -44,35 +41,28 @@ class SimTermSettings
 			     'simterm-settings');
 
 	/* Config fields */
-	/* Just a demo field */
-	/* add_settings_field('simterm-global-theme', // setting name
-	   'Theme to use',// setting description
-	   array($this, 'config_global_theme'), // setting view callback
-	   'simterm-settings', // option group
-	   'simterm-global-settings'); // settings section */
-	/* Just a demo field */
 	add_option('simterm-type-prepend', '>');
 	add_option('simterm-command-prepend', '$#');
 	add_option('simterm-default-delay', '400');
 	add_option('simterm-default-theme', 'light');
 
 	add_settings_field('simterm-default-theme',
-			   'Theme to use',
+			   __('Theme to use', 'simterm'),
 			   array($this, 'config_default_theme'),
 			   'simterm-settings',
 			   'simterm-global-settings');
 	add_settings_field('simterm-default-delay',
-			   'Delay between lines',
+			   __('Default delay between lines', 'simterm'),
 			   array($this, 'config_default_delay'),
 			   'simterm-settings',
 			   'simterm-global-settings');
 	add_settings_field('simterm-command-prepend',
-			   'Command prepend character',
+			   __('Command prepend character', 'simterm'),
 			   array($this, 'config_command_prepend'),
 			   'simterm-settings',
 			   'simterm-global-settings');
 	add_settings_field('simterm-type-prepend',
-			   'Type prepend character',
+			   __('Type prepend character', 'simterm'),
 			   array($this, 'config_type_prepend'),
 			   'simterm-settings',
 			   'simterm-global-settings');
@@ -94,7 +84,7 @@ class SimTermSettings
 
     public function globalConfiguration()
     {
-	echo wpautop( "This are some options you can change." );
+      echo SimTermView::render('settings/main');
     }
 
     public function register_settings_menu()
@@ -117,10 +107,10 @@ class SimTermSettings
     {
 	/* In the future, this themes may be extensions of this plugin  */
 	echo SimTermView::render('settings/select', array('fieldId'=>'simterm-default-theme', 
-							  'options' => array('regular' => 'Regular',
-									     'dark' => 'Dark',
-									     'light' => 'Light',
-									     'blue' => 'Blue'),
+							  'options' => array('regular' => __('Regular', 'simterm'),
+									     'dark' => __('Dark', 'simterm'),
+									     'light' => __('Light', 'simterm'),
+									     'blue' => __('Blue', 'simterm')),
 	));
     }
 
@@ -128,21 +118,21 @@ class SimTermSettings
     {
 
 	echo SimTermView::render('settings/text', array('fieldId'=>'simterm-default-delay', 
-							'fieldText' => 'Delay in milliseconds'
+							'fieldText' => __('Delay in milliseconds by default', 'simterm')
 	));
     }
 
     public function config_command_prepend()
     {
 	echo SimTermView::render('settings/text', array('fieldId'=>'simterm-command-prepend', 
-							'fieldText' => 'Any of these characters may prepend a command input'
+							'fieldText' => __('Any of these characters may prepend a command input', 'simterm')
 	));
     }
 
     public function config_type_prepend()
     {
 	echo SimTermView::render('settings/text', array('fieldId'=>'simterm-type-prepend', 
-							'fieldText' => 'Any of these characters may prepend a type input'
+							'fieldText' => __('Any of these characters may prepend a type input', 'simterm')
 	));
     }
 
