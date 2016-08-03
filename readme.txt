@@ -2,7 +2,7 @@
 Contributors: gasparfm
 Donate link: 
 Tags: terminal, linux, bash, command, line, demo, typing, osx, cli, text, type, input, output
-Requires at least: 4.3
+Requires at least: 4.2
 Tested up to: 4.5
 Stable tag: 0.2
 License: GPLv2 or later
