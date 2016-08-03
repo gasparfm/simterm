@@ -1,4 +1,12 @@
 20160803	Gaspar Fernández <gaspar.fernandez@totaki.com>
+	* Plugin translated 100% to Spanish
+	* Version tagged 0.2.2
+
+20160803	Gaspar Fernández <gaspar.fernandez@totaki.com>
+	* 4.2 is now the least compatible version
+	* Version tagged 0.2.1
+
+20160803	Gaspar Fernández <gaspar.fernandez@totaki.com>
 	* More config options: window title, typing speed, several new delays
 	and character fixing for HTML output and WordPress.
 	* Title is an attribute of shortcode too.

@@ -3,7 +3,7 @@
  * Plugin Name: SimTerm
  * Plugin URI:  http://gaspar.totaki.com/en/php-project/simterm/
  * Description: Simulates terminal input/output for tutorials
- * Version: 0.2.1
+ * Version: 0.2.2
  * Author: Gaspar Fernández
  * Author URI: http://totaki.com/poesiabinaria/
  * License: GPL3

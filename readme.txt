@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: gasparfm
-Donate link: 
+Donate link: http://gaspar.totaki.com/donate/
 Tags: terminal, linux, bash, command, line, demo, typing, osx, cli, text, type, input, output
 Requires at least: 4.2
 Tested up to: 4.5
@@ -42,6 +42,12 @@ To create the effect it uses "Show Your Terms" by Kande Bofim, a tiny and librar
 = I will update it when questions come =
 
 == Changelog ==
+
+= 0.2.2 (2016-08-03) =
+* Plugin translated 100% to Spanish
+
+= 0.2.1 (2016-08-03) =
+* WP 4.2 is now the least compatible version
 
 = 0.2 (2016-08-03) =
 * More config options: window title, typing speed, several new delays and character fixing for HTML output and WordPress.

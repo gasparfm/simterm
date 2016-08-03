@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: simterm\n"
-"POT-Creation-Date: 2016-08-01 17:25+0100\n"
-"PO-Revision-Date: 2016-08-01 17:26+0100\n"
+"POT-Creation-Date: 2016-08-03 18:46+0100\n"
+"PO-Revision-Date: 2016-08-03 18:49+0100\n"
 "Last-Translator: Gaspar Fernández <gaspar.fernandez@totaki.com>\n"
 "Language-Team: simterm <gaspar.fernandez@totaki.com>\n"
 "Language: English\n"
@@ -15,53 +15,102 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: simterm-settings.php:50
+#: simterm-settings.php:70
+msgid "Terminal"
+msgstr "Terminal"
+
+#: simterm-settings.php:75
 msgid "Theme to use"
 msgstr "Tema a utilizar"
 
-#: simterm-settings.php:55
+#: simterm-settings.php:80 simterm-settings.php:86
 msgid "Default delay between lines"
 msgstr "Retraso por defecto entre lineas"
 
-#: simterm-settings.php:60
+#: simterm-settings.php:91
+msgid "Default delay for last line"
+msgstr "Retraso por defecto para la última línea"
+
+#: simterm-settings.php:96
+msgid "Default typing speed for commands and user input"
+msgstr "Velocidad de tecleo por defecto para comandos y entradas de usuario"
+
+#: simterm-settings.php:104
 msgid "Command prepend character"
 msgstr "Carácter que introduce un comando"
 
-#: simterm-settings.php:65
+#: simterm-settings.php:109
 msgid "Type prepend character"
 msgstr "Carácter que introduce entrada de usuario"
 
-#: simterm-settings.php:110
+#: simterm-settings.php:115
+msgid "Transform characters"
+msgstr "Transformar caracteres"
+
+#: simterm-settings.php:120
+msgid "Terminal Window Title"
+msgstr "Título de la ventana de terminal"
+
+#: simterm-settings.php:158
+msgid "Fix special characters that look weird in a terminal window"
+msgstr "Corregir caracteres especiales en las ventanas de terminal"
+
+#: simterm-settings.php:165
 msgid "Regular"
 msgstr "Regular"
 
-#: simterm-settings.php:111
+#: simterm-settings.php:166
 msgid "Dark"
 msgstr "Oscuro"
 
-#: simterm-settings.php:112
+#: simterm-settings.php:167
 msgid "Light"
 msgstr "Claro"
 
-#: simterm-settings.php:113
+#: simterm-settings.php:168
 msgid "Blue"
 msgstr "Azul"
 
-#: simterm-settings.php:121
+#: simterm-settings.php:176
 msgid "Delay in milliseconds by default"
 msgstr "Retraso por defecto en milisegundos"
 
-#: simterm-settings.php:128
+#: simterm-settings.php:184
+msgid "Delay in milliseconds for multi-line outputs"
+msgstr "Retraso en milisegundos para entradas de varias líneas"
+
+#: simterm-settings.php:192
+msgid ""
+"Delay in milliseconds for the last line. It can be something like 10000 (10 "
+"seconds) to wait before replaying animation"
+msgstr ""
+"Retraso en milisegundos para la última línea. Podemos poner un número grande "
+"como 10000 (10 segundos), así se produce una espera larga antes de "
+"reproducir la animación de nuevo."
+
+#: simterm-settings.php:200
+msgid ""
+"Delay in milliseconds for any letter typed in commands and user input "
+"(defaults 100ms)"
+msgstr ""
+"Retraso en milisegundos para cualquier tecla tecleada en comandos y entradas "
+"de usuario (por defecto 100ms)"
+
+#: simterm-settings.php:207
 msgid "Any of these characters may prepend a command input"
 msgstr ""
 "Cualquiera de estos caracteres puede dar paso a una introducción de un "
 "comando"
 
-#: simterm-settings.php:135
+#: simterm-settings.php:214
 msgid "Any of these characters may prepend a type input"
 msgstr ""
 "Cualquiera de estos caracteres puede dar paso a una introducción de datos "
 "por teclado"
+
+#: simterm-settings.php:221
+msgid "Default window title"
+msgstr "Título de la ventana por defecto"
 
 #: simterm.php:30
 msgid "Simulates terminal input/output for tutorials"
