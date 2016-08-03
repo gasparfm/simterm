@@ -3,7 +3,7 @@
  * Plugin Name: SimTerm
  * Plugin URI:  http://gaspar.totaki.com/en/php-project/simterm/
  * Description: Simulates terminal input/output for tutorials
- * Version: 0.1.1
+ * Version: 0.2
  * Author: Gaspar Fernández
  * Author URI: http://totaki.com/poesiabinaria/
  * License: GPL3
@@ -41,7 +41,8 @@ class SimTermLoader
 	$sett->register();
     }
 
-    public function load_textdomain() {
+    public function load_textdomain() 
+    {
       load_plugin_textdomain( 'simterm', FALSE, dirname( plugin_basename( __FILE__ ) ).'/languages/' );
     }
 

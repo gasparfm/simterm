@@ -34,10 +34,15 @@ class SimTerm
       $commandPrep = get_option('simterm-command-prepend');
       $typePrep = get_option('simterm-type-prepend');
       $defaultDelay = get_option('simterm-default-delay');
-      $lastLineDelay = 10000;
+      $lastLineDelay = get_option('simterm-last-delay-time');
       $defaultTheme = get_option('simterm-default-theme');
+      $plainOutputDelay = get_option('simterm-output-delay-time');
+      $defaultTypingSpeed = get_option('simterm-typing-speed');
+      $filters = array();
+      if (get_option('simterm-transform-chars'))
+	$filters[] = array($this, 'fixDashes');
       $data['theme'] = $defaultTheme;
-      $data['title'] = "Console";
+      $data['title'] = (isset($atts['title']))?$atts['title']:get_option('simterm-window-title');
 
       $lines = array();
       foreach ($_lines as $l)
@@ -51,12 +56,25 @@ class SimTerm
       for ($i = 0; $i<$lineCount; ++$i)
 	{
 	  $linedata = array();
-	  $thisline = new SimTermLine($lines[$i], $commandPrep, $typePrep, ($i<$lineCount-1)?$defaultDelay:$lastLineDelay);
-	  $data['lines'][] = $thisline->getData();
+	  $thisline = new SimTermLine($lines[$i], $commandPrep, $typePrep, ($i<$lineCount-1)?$defaultDelay:$lastLineDelay, $defaultTypingSpeed);
+	  $data['lines'][] = $thisline->getData($filters);
 	}
-      return SimTermView::render('live/syt', array('data' => $data));
 
-?>
-<?php
+      /* One more loop to fix delays */
+      for ($i = 0; $i<$lineCount-1; ++$i)
+	{
+	  if ( ($data['lines'][$i]['type'] == 'line') && ($data['lines'][$i+1]['type'] == 'line') && (!$data['lines'][$i]['customDelay']) )
+	    $data['lines'][$i]['delay'] = $plainOutputDelay;
+	}
+
+      return SimTermView::render('live/syt', array('data' => $data));
+    }
+
+    function fixDashes($content)
+    {
+      $content = str_replace( '&#8211;' , '--' , $content );
+      $content = str_replace( '&#8212;' , '---' , $content );
+      $content = str_replace (' ', '&nbsp;', $content);
+      return $content; 
     }
 };

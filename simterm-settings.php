@@ -28,12 +28,29 @@ class SimTermSettings
 	register_setting('simterm-settings',
 			 'simterm-default-theme');
 	register_setting('simterm-settings',
-			 'simterm-delay-time',
+			 'simterm-default-delay',
 			 array($this, 'number_sanitize'));
 	register_setting('simterm-settings',
 			 'simterm-command-prepend');
 	register_setting('simterm-settings',
 			 'simterm-type-prepend');
+	/* New in 0.2 */
+	register_setting('simterm-settings',
+			 'simterm-transform-chars',
+			 array($this, 'bool_sanitize'));
+	register_setting('simterm-settings',
+			 'simterm-output-delay-time',
+			 array($this, 'number_sanitize'));
+	register_setting('simterm-settings',
+			 'simterm-last-delay-time',
+			 array($this, 'number_sanitize'));
+	register_setting('simterm-settings',
+			 'simterm-typing-speed',
+			 array($this, 'number_sanitize'));
+	register_setting('simterm-settings',
+			 'simterm-window-title');
+
+	/* --------------------------------------------- */
 	/* Config sections  */
 	add_settings_section('simterm-global-settings', 
 			     'SimTerm Configuration',
@@ -45,6 +62,14 @@ class SimTermSettings
 	add_option('simterm-command-prepend', '$#');
 	add_option('simterm-default-delay', '400');
 	add_option('simterm-default-theme', 'light');
+	/* New in 0.2 */
+	add_option('simterm-transform-chars', true);
+	add_option('simterm-output-delay-time', 10);
+	add_option('simterm-last-delay-time', 10000);
+	add_option('simterm-typing-speed', 100);
+	add_option('simterm-window-title', __('Terminal', 'simterm'));
+
+	/* -------------------------------------------- */
 
 	add_settings_field('simterm-default-theme',
 			   __('Theme to use', 'simterm'),
@@ -56,14 +81,44 @@ class SimTermSettings
 			   array($this, 'config_default_delay'),
 			   'simterm-settings',
 			   'simterm-global-settings');
+	/* New in 0.2 */
+	add_settings_field('simterm-output-delay-time',
+			   __('Default delay between lines', 'simterm'),
+			   array($this, 'config_output_delay'),
+			   'simterm-settings',
+			   'simterm-global-settings');
+	add_settings_field('simterm-last-delay-time',
+			   __('Default delay for last line', 'simterm'),
+			   array($this, 'config_last_delay'),
+			   'simterm-settings',
+			   'simterm-global-settings');
+	add_settings_field('simterm-typing-speed',
+			   __('Default typing speed for commands and user input', 'simterm'),
+			   array($this, 'config_typing_speed'),
+			   'simterm-settings',
+			   'simterm-global-settings');
+	/* New in 0.2 */
+
+	/* 0.1 options */
 	add_settings_field('simterm-command-prepend',
 			   __('Command prepend character', 'simterm'),
 			   array($this, 'config_command_prepend'),
 			   'simterm-settings',
 			   'simterm-global-settings');
-	add_settings_field('simterm-type-prepend',
+	add_settings_field('simterm-typing-prepend',
 			   __('Type prepend character', 'simterm'),
 			   array($this, 'config_type_prepend'),
+			   'simterm-settings',
+			   'simterm-global-settings');
+	/* New in 0.2 */
+	add_settings_field('simterm-transform-chars',
+			   __('Transform characters', 'simterm'),
+			   array($this, 'config_transform_characters'),
+			   'simterm-settings',
+			   'simterm-global-settings');
+	add_settings_field('simterm-window-title',
+			   __('Terminal Window Title', 'simterm'),
+			   array($this, 'config_window_title'),
 			   'simterm-settings',
 			   'simterm-global-settings');
     }
@@ -98,9 +153,9 @@ class SimTermSettings
 	echo SimTermView::render('globalsettings');
     }
 
-    public function config_global_theme()
+    public function config_transform_characters()
     {
-	echo SimTermView::render('settings/checkbox', array('fieldId'=>'simterm-global-theme', 'fieldText' => 'Extra information'));
+	echo SimTermView::render('settings/checkbox', array('fieldId'=>'simterm-transform-chars', 'fieldText' => __('Fix special characters that look weird in a terminal window', 'simterm')));
     }
 
     public function config_default_theme()
@@ -122,6 +177,30 @@ class SimTermSettings
 	));
     }
 
+    public function config_output_delay()
+    {
+
+	echo SimTermView::render('settings/text', array('fieldId'=>'simterm-output-delay-time', 
+							'fieldText' => __('Delay in milliseconds for multi-line outputs', 'simterm')
+	));
+    }
+
+    public function config_last_delay()
+    {
+
+	echo SimTermView::render('settings/text', array('fieldId'=>'simterm-last-delay-time', 
+							'fieldText' => __('Delay in milliseconds for the last line. It can be something like 10000 (10 seconds) to wait before replaying animation', 'simterm')
+	));
+    }
+
+    public function config_typing_speed()
+    {
+
+	echo SimTermView::render('settings/text', array('fieldId'=>'simterm-typing-speed', 
+							'fieldText' => __('Delay in milliseconds for any letter typed in commands and user input (defaults 100ms)', 'simterm')
+	));
+    }
+
     public function config_command_prepend()
     {
 	echo SimTermView::render('settings/text', array('fieldId'=>'simterm-command-prepend', 
@@ -133,6 +212,13 @@ class SimTermSettings
     {
 	echo SimTermView::render('settings/text', array('fieldId'=>'simterm-type-prepend', 
 							'fieldText' => __('Any of these characters may prepend a type input', 'simterm')
+	));
+    }
+
+    public function config_window_title()
+    {
+	echo SimTermView::render('settings/text', array('fieldId'=>'simterm-window-title', 
+							'fieldText' => __('Default window title', 'simterm')
 	));
     }
 

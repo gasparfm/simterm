@@ -5,12 +5,14 @@ class SimTermLine
     private $line;
     private $commandPrep;
     private $typePrep;
+    private $typeSpeed;
     private $delay;
+    private $customDelay = false;
     private $lineColor;
     private $lineData;
     private $lineAttrs;
 
-    public function __construct($plaintext, $commandPrep, $typePrep, $defaultDelay)
+    public function __construct($plaintext, $commandPrep, $typePrep, $defaultDelay, $typingSpeed)
     {
 	$this->line = $plaintext;
 	$this->commandPrep = $commandPrep;
@@ -19,11 +21,13 @@ class SimTermLine
 	$this->lineData = array();
 	$this->lineColor = "";
 	$this->lineAttrs = "";
+	$this->typeSpeed = $typingSpeed;
     }
 
-    public function getData()
+    public function getData($filters=array())
     {
-	$this->line = preg_replace_callback('/##([^#]*)##/', array($this, 'modifier'), $this->line);
+	/* One more trim */
+	$this->line = trim(preg_replace_callback('/##([^#]*)##/', array($this, 'modifier'), $this->line));
 	if ( (!empty($this->commandPrep)) && (strchr($this->commandPrep, $this->line[0]) !== false) )
 	    $this->linedata['type'] = 'command';
 	elseif ( (!empty($this->typePrep)) && (strchr($this->typePrep, $this->line[0]) !== false) )
@@ -35,8 +39,13 @@ class SimTermLine
 	    $this->line = trim(substr($this->line, 1));
 
 	$this->linedata['attrs'] = trim($this->lineAttrs.' '.$this->lineColor);
+	foreach ($filters as $filter)
+	    $this->line = call_user_func($filter, $this->line);
+
 	$this->linedata['text'] = $this->line;
 	$this->linedata['delay'] = $this->delay;
+	$this->linedata['speed'] = $this->typeSpeed;
+	$this->linedata['customDelay'] = $this->customDelay;
 	return $this->linedata;
     }
 
@@ -64,11 +73,15 @@ class SimTermLine
 		case 'active':
 		  $this->lineAttrs.=' active';
 		  break;
+		case 'speed':
+		  $this->typeSpeed=$eq[1];
+		  break;
 		case 'color':
 		  $this->lineColor=$eq[1];
 		  break;
 		case 'delay':
 		  $this->delay = $eq[1];
+		  $this->customDelay = true;
 		  break;
 	    }
 	}

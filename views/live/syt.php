@@ -17,6 +17,7 @@ $title = $data['title'];
        $attributes.=' data-action="command"';
 
      $attributes.=' data-delay="'.$line['delay'].'"';
+     $attributes.=' data-speed="'.$line['speed'].'"';
 
      $attributes=trim($attributes);
      echo '<div class="'.$class.((!empty($line['attrs']))?(' '.$line['attrs']):'').'"';
