@@ -47,7 +47,10 @@ class SimTerm
       $lines = array();
       foreach ($_lines as $l)
 	{
-	  $l = trim(strip_tags($l));
+	  /* Replace strip_tags for preg_replace. strip_tags removes orphan < symbols and they're often
+	     used in terminals. */
+	  /* This expression must leave orphan <, > but supports sort <input >output and things like that. */
+	  $l = trim(preg_replace( '/<[^<>\s]+(\s+[^<>\s]+)*?>/', '', $l));
 	  if (empty($l))
 	    continue;
 	  $lines[] = $l;
@@ -74,6 +77,8 @@ class SimTerm
     {
       $content = str_replace( '&#8211;' , '--' , $content );
       $content = str_replace( '&#8212;' , '---' , $content );
+      $content = str_replace( '<' , '&lt;' , $content );
+      $content = str_replace( '>' , '&gt;' , $content );
       $content = str_replace (' ', '&nbsp;', $content);
       return $content; 
     }

@@ -4,7 +4,7 @@ Donate link: http://gaspar.totaki.com/donate/
 Tags: terminal, linux, bash, command, line, demo, typing, osx, cli, text, type, input, output
 Requires at least: 4.2
 Tested up to: 4.5
-Stable tag: 0.2
+Stable tag: 0.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,9 @@ To create the effect it uses "Show Your Terms" by Kande Bofim, a tiny and librar
 = I will update it when questions come =
 
 == Changelog ==
+
+= 0.2.3 (2016-08-04) =
+* < and > are now visible.
 
 = 0.2.2 (2016-08-03) =
 * Plugin translated 100% to Spanish
