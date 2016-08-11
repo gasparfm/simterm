@@ -222,4 +222,10 @@ class SimTermSettings
 	));
     }
 
+    function validTheme($theme)
+    {
+	static $validThemes = array('regular', 'light', 'dark', 'blue');
+	return (in_array($theme, $validThemes));
+    }
+
 };

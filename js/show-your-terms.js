@@ -64,12 +64,22 @@
       }
     };
 
-    ShowYourTerms.prototype.addCommand = function(content, options) {
-      return this.content[0].push(["command", content, options]);
+    ShowYourTerms.prototype.addCommand = function(content, options, outputTerm) {
+      if (outputTerm == null) {
+        outputTerm = 0;
+      }
+      if (outputTerm < this.content.length) {
+        return this.content[outputTerm].push(["command", content, options]);
+      }
     };
 
-    ShowYourTerms.prototype.addLine = function(content, options) {
-      return this.content[0].push(["line", content, options]);
+    ShowYourTerms.prototype.addLine = function(content, options, outputTerm) {
+      if (outputTerm == null) {
+        outputTerm = 0;
+      }
+      if (outputTerm < this.content.length) {
+        return this.content[outputTerm].push(["line", content, options]);
+      }
     };
 
     ShowYourTerms.prototype.play = function(outputTerm) {
@@ -122,7 +132,7 @@
     };
 
     ShowYourTerms.prototype.outputGenerator = function(output, outputTerm) {
-      var content, counter, currentLine, interval, options, speed, type;
+      var content, counter, currentLine, interval, options, pauseInterval, speed, type;
       type = output[0], content = output[1], options = output[2];
       currentLine = document.createElement("div");
       if (options.styles) {
@@ -135,6 +145,9 @@
       }
       currentLine.classList.add('active');
       if (type === "command") {
+        if (!currentLine.classList.contains('type')) {
+          currentLine.classList.add('command');
+        }
         counter = 0;
         return interval = setInterval(((function(_this) {
           return function() {
@@ -151,10 +164,21 @@
           };
         })(this)), speed);
       } else {
-        currentLine.appendChild(document.createTextNode(content));
-        this.container[outputTerm].appendChild(currentLine);
-        currentLine.classList.remove('active');
-        return this.callNextOutput(options.delay, outputTerm);
+        if (!this.isPlaying(outputTerm)) {
+          return pauseInterval = setInterval(((function(_this) {
+            return function() {
+              if (_this.isPlaying(outputTerm)) {
+                clearInterval(pauseInterval);
+                return _this.callNextOutput(options.delay, outputTerm);
+              }
+            };
+          })(this)), speed);
+        } else {
+          currentLine.appendChild(document.createTextNode(content));
+          this.container[outputTerm].appendChild(currentLine);
+          currentLine.classList.remove('active');
+          return this.callNextOutput(options.delay, outputTerm);
+        }
       }
     };
 

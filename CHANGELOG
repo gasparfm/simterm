@@ -1,3 +1,8 @@
+20160811	Gaspar Fernández <gaspar.fernandez@totaki.com>
+	* Main JS update, now supports pause on lines
+	* Ability to change theme in the shortcut [simterm theme="dark"]...[/simterm]
+	* Version tagged 0.2.4
+
 20160804	Gaspar Fernández <gaspar.fernandez@totaki.com>
 	* < and > are now visible, not stripped.
 	* Version tagged 0.2.3

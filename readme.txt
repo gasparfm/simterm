@@ -4,7 +4,7 @@ Donate link: http://gaspar.totaki.com/donate/
 Tags: terminal, linux, bash, command, line, demo, typing, osx, cli, text, type, input, output
 Requires at least: 4.2
 Tested up to: 4.5
-Stable tag: 0.2.3
+Stable tag: 0.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,10 @@ To create the effect it uses "Show Your Terms" by Kande Bofim, a tiny and librar
 = I will update it when questions come =
 
 == Changelog ==
+
+= 0.2.4 (2016-08-11) =
+* Main JS update, now supports pause on lines
+* Ability to change theme in the shortcut [simterm theme="dark"]...[/simterm]
 
 = 0.2.3 (2016-08-04) =
 * < and > are now visible.

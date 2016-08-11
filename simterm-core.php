@@ -41,7 +41,7 @@ class SimTerm
       $filters = array();
       if (get_option('simterm-transform-chars'))
 	$filters[] = array($this, 'fixDashes');
-      $data['theme'] = $defaultTheme;
+      $data['theme'] = ( (isset($atts['theme'])) && ($this->settings()->validTheme($atts['theme'])) )?$atts['theme']:$defaultTheme;
       $data['title'] = (isset($atts['title']))?$atts['title']:get_option('simterm-window-title');
 
       $lines = array();
@@ -82,4 +82,5 @@ class SimTerm
       $content = str_replace (' ', '&nbsp;', $content);
       return $content; 
     }
+
 };
