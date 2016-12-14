@@ -12,7 +12,6 @@ class SimTermSettings
 
 	protected function __construct()
 	{
-		$this->basic_registration();
 	}
 
 	private function __clone()
@@ -78,6 +77,7 @@ class SimTermSettings
 
 	public function register()
 	{
+		$this->basic_registration();
 		/* Config sections  */
 		add_settings_section('simterm-global-settings',
 												 'SimTerm Configuration',

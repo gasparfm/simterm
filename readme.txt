@@ -4,7 +4,7 @@ Donate link: http://gaspar.totaki.com/donate/
 Tags: terminal, linux, bash, command, line, demo, typing, osx, cli, text, type, input, output
 Requires at least: 4.2
 Tested up to: 4.7
-Stable tag: 0.3.0
+Stable tag: 0.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,9 @@ To create the effect it uses "Show Your Terms" by Kande Bofim, a tiny and librar
 = I will update it when questions come =
 
 == Changelog ==
+
+= 0.3.1 (2016-12-14) =
+* Bug fix for older WordPress versions
 
 = 0.3.0 (2016-12-14) =
 * Main JS update, now supports:
