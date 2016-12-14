@@ -262,7 +262,7 @@ class SimTermSettings
 
 	function validTheme($theme)
 	{
-		static $validThemes = array('regular', 'light', 'dark', 'blue');
+		static $validThemes = array('regular', 'light', 'dark', 'blue', 'ubuntu');
 		return (in_array($theme, $validThemes));
 	}
 
