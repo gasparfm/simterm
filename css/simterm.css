@@ -1,16 +1,3 @@
-.showyourterms, .showyourterms::before, .showyourterms::after {
+.showyourterms, .showyourterms::before, .showyourterms::after, showyourterms .syt-statusbar, showyourterms .syt-statusbar ul {
     box-sizing: content-box;
-}
-
-.showyourterms.blue::before {
-    background-color:#96a5bc;
-    color:rgba(15,15,15,0.95);
-}
-
-.showyourterms.blue::after {
-    background-color: #565eeb;
-    border-radius:0%;
-    box-shadow: none;
-    right: 8.32px;
-    left: inherit;
 }

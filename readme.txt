@@ -3,8 +3,8 @@ Contributors: gasparfm
 Donate link: http://gaspar.totaki.com/donate/
 Tags: terminal, linux, bash, command, line, demo, typing, osx, cli, text, type, input, output
 Requires at least: 4.2
-Tested up to: 4.5
-Stable tag: 0.2.4
+Tested up to: 4.7
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,9 +43,25 @@ To create the effect it uses "Show Your Terms" by Kande Bofim, a tiny and librar
 
 == Changelog ==
 
+= 0.3.0 (2016-12-14) =
+* Main JS update, now supports:
+   - replay
+	 - copy to clipboard (whole term or just a line with double click)
+	 - status bar (use nostatusbar class to return to the default behaviour)
+	 - no animate settings (window won't be animated by default)
+	 - Ubuntu terminal theme
+	 - Blue theme (It was implemented in SimTerm, now it is in showyourterms)
+	 - Terminal won't replay automatically on mouse over.
+* Compatibility with WordPress 4.7
+* Setting to enable/disable automatic animation (default enabled)
+* Setting to enable/disable statusbar (default disabled)
+* Shortcode settings (animate="1/0" , statusbar="1/0") to apply to individual terms
+* Updated translations
+* Known issue: Javascript messaged are not translated
+
 = 0.2.4 (2016-08-11) =
 * Main JS update, now supports pause on lines
-* Ability to change theme in the shortcut [simterm theme="dark"]...[/simterm]
+* Ability to change theme in the shortcode [simterm theme="dark"]...[/simterm]
 
 = 0.2.3 (2016-08-04) =
 * < and > are now visible.

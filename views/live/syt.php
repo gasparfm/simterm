@@ -1,9 +1,15 @@
 <?php
 $theme = $data['theme'];
 $title = $data['title'];
+$statusbar = $data['statusbar'];
+$animated = $data['animated'];
 
 ?>
-<div class="showyourterms<?php if (!empty($theme)) echo ' '.$theme; ?>"<?php if(!empty($title)) echo ' data-title="'.$title.'"'; ?>>
+<div class="showyourterms<?php
+if (!empty($theme)) echo ' '.$theme;
+if (!$animated) echo ' noanimate';
+if (!$statusbar) echo ' nostatusbar';
+?>"<?php if(!empty($title)) echo ' data-title="'.$title.'"'; ?>>
 <?php
      $valid_types = array('type', 'command', 'line');
      foreach ($data['lines'] as $line)
