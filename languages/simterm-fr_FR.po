@@ -1,0 +1,156 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: simterm\n"
+"POT-Creation-Date: 2016-12-14 14:16+0100\n"
+"PO-Revision-Date: 2017-11-14 01:18+0100\n"
+"Language-Team: simterm <gaspar.fernandez@totaki.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.4\n"
+"X-Poedit-KeywordsList: __;gettext;gettext_noop\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Last-Translator: \n"
+"Language: fr_FR\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: simterm-settings.php:71
+msgid "Terminal"
+msgstr "Terminal"
+
+#: simterm-settings.php:90
+msgid "Theme to use"
+msgstr "Thème à utiliser"
+
+#: simterm-settings.php:96
+msgid "Animate windows by default"
+msgstr "Fenêtre animée par défaut"
+
+#: simterm-settings.php:101
+msgid "Show statusbar with options"
+msgstr "Affiche la barre d'état avec les options"
+
+#: simterm-settings.php:107 simterm-settings.php:113
+msgid "Default delay between lines"
+msgstr "Délais par défaut entre deux lignes"
+
+#: simterm-settings.php:118
+msgid "Default delay for last line"
+msgstr "Délais par défaut pour la dernière ligne"
+
+#: simterm-settings.php:123
+msgid "Default typing speed for commands and user input"
+msgstr ""
+"Vitesse de frappe par défaut pour les commandes et les entrées utilisateur"
+
+#: simterm-settings.php:131
+msgid "Command prepend character"
+msgstr "Caractère de début de ligne pour une commande"
+
+#: simterm-settings.php:136
+msgid "Type prepend character"
+msgstr "Caratère de début de ligne pour une entrée utilisateur"
+
+#: simterm-settings.php:142
+msgid "Transform characters"
+msgstr "Transformation de caractères"
+
+#: simterm-settings.php:147
+msgid "Terminal Window Title"
+msgstr "Titre de la fenêtre de terminal"
+
+#: simterm-settings.php:185
+msgid "Fix special characters that look weird in a terminal window"
+msgstr "Fixe les caractères qui semblent bizarres dans la fenêtre de terminal"
+
+#: simterm-settings.php:190
+msgid ""
+"Show window statusbar by default. The statusbar has some options to animate/"
+"display all/copy to clipboard"
+msgstr ""
+"Affiche la barre d'état par défaut. La barre d'état a des options afin "
+"d'animer/afficher tout/copier dans le presse-papier"
+
+#: simterm-settings.php:195
+msgid "Animate terminals by default"
+msgstr "Terminal animé par défaut"
+
+#: simterm-settings.php:202
+msgid "Regular"
+msgstr "Regulier"
+
+#: simterm-settings.php:203
+msgid "Ubuntu"
+msgstr "Ubuntu"
+
+#: simterm-settings.php:204
+msgid "Dark"
+msgstr "Sombre"
+
+#: simterm-settings.php:205
+msgid "Light"
+msgstr "Clair"
+
+#: simterm-settings.php:206
+msgid "Blue"
+msgstr "Bleu"
+
+#: simterm-settings.php:214
+msgid "Delay in milliseconds by default"
+msgstr "Délais en millisecondes par défaut"
+
+#: simterm-settings.php:222
+msgid "Delay in milliseconds for multi-line outputs"
+msgstr "Délais en millisecondes pour les affichage multi-ligne"
+
+#: simterm-settings.php:230
+msgid ""
+"Delay in milliseconds for the last line. It can be something like 10000 (10 "
+"seconds) to wait before replaying animation"
+msgstr ""
+"Délais en millisecondes pour la dernière ligne. 10000 (10 secondes) à "
+"attendre avant de rejouer l'animation"
+
+#: simterm-settings.php:238
+msgid ""
+"Delay in milliseconds for any letter typed in commands and user input "
+"(defaults 100ms)"
+msgstr ""
+"Délais en millisecondes pour chaque caractère entré dans la commande et "
+"l'entrée utilisateur (100ms par défaut)"
+
+#: simterm-settings.php:245
+msgid "Any of these characters may prepend a command input"
+msgstr "N'importe lequel de ces caractères peut préfixer une commande"
+
+#: simterm-settings.php:252
+msgid "Any of these characters may prepend a type input"
+msgstr ""
+"N'importe lequel de ces caractères peut préfixer une entrée utilisateur"
+
+#: simterm-settings.php:259
+msgid "Default window title"
+msgstr "Titre de la fenêtre par défaut"
+
+#: simterm.php:30
+msgid "Simulates terminal input/output for tutorials"
+msgstr "Simule l'entrée/sortie du terminal pour les tutoriels"
+
+#: views/globalsettings.php:2
+msgid "SimTerm Options"
+msgstr "Options de SimTerm"
+
+#: views/globalsettings.php:14
+#, php-format
+msgid ""
+"SimTerm by <a href=\"%1$s\"\">%2$s</a> using Show Your Terms by <a href="
+"\"%3$s\">%4$s</a>"
+msgstr ""
+"SimTerm par <a href=\"%1$s\"\">%2$s</a> utilisant Show Your Terms par <a "
+"href=\"%3$s\">%4$s</a>"
+
+#: views/settings/main.php:2
+msgid "You can edit SimTerm settings here"
+msgstr "Vous pouvez éditer les paramètres de SimTerm ici"
