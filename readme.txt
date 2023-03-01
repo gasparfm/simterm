@@ -23,7 +23,11 @@ symbol.
 You can also specify the color of the line using ##red## , ##blue## , ##green## or ##yellow## or even a custom
 delay for this line with ##delay=[ms]## with the amount of milliseconds to sleep.
 
-To create the effect it uses "Show Your Terms" by Kande Bofim, a tiny and library agnostic Javascript.
+More granular styling can be applied with CSS when used in conjunction with a plugin like 'Raw HTML' by Janis 
+Elsts.
+
+To create the effect it uses a slightly modified version of "Show Your Terms" by Kande Bofim, a tiny and library 
+agnostic Javascript.
 
 == Installation ==
 

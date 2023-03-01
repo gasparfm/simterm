@@ -58,6 +58,7 @@
       ref = this.container[outputTerm].children;
       for (j = 0, len = ref.length; j < len; j++) {
         element = ref[j];
+        element.innerHTML = element.innerHTML.replace(/(<([^>]+)>)/ig, "&lt;$2&gt;"); // Escape HTML tags
         this.content[outputTerm].push([
           element.getAttribute('data-action'), element.innerText, {
             styles: element.classList,
@@ -122,6 +123,7 @@
             text += content + "\n";
           }
         }
+        text=text.replace(/<[^>]*>?/gm, ''); // strip out HTML tags
         tar.value = text;
         tar.select();
         successful = document.execCommand('copy');
@@ -266,7 +268,17 @@
             currentLine.classList.add('command');
           }
         }
-        currentLine.append(content);
+        content = content.replace(/&lt;([^&]+)&gt;/ig, "<$1>"); // Unescape HTML tags
+
+        /* Append content as HTML if it contains a tag opener */
+        if (content.includes("<")) {
+          const newDiv = document.createElement("div");
+          newDiv.innerHTML = content        
+          currentLine.appendChild(newDiv); 
+        } else {
+          currentLine.append(content);
+        }
+
         fullview.append(currentLine);
       }
       this.container[outputTerm].innerHTML = fullview.innerHTML;
@@ -326,6 +338,7 @@
     ShowYourTerms.prototype.outputGenerator = function(output, outputTerm) {
       var content, counter, currentLine, options, speed, type;
       type = output[0], content = output[1], options = output[2];
+      content = content.replace(/&lt;([^&]+)&gt;/ig, "<$1>"); // Unescape HTML tags
       currentLine = document.createElement("div");
       if (options.styles) {
         currentLine.setAttribute("class", options.styles);
@@ -374,7 +387,10 @@
             };
           })(this)), speed);
         } else {
-          currentLine.appendChild(document.createTextNode(content));
+          /* Append content as HTML, not text */
+          const newDiv = document.createElement("div");
+          newDiv.innerHTML = content
+          currentLine.appendChild(newDiv);
           this.container[outputTerm].appendChild(currentLine);
           currentLine.classList.remove('active');
           return this.callNextOutput(options.delay, outputTerm);
