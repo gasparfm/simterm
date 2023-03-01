@@ -36,22 +36,24 @@ class SimTermLoader
 		add_shortcode('simterm', array(self::$st, 'simterm_shortcode'));
 	}
 
-	public function basic_init()
+	public static function basic_init()
 	{
 		/* Nothing right here yet */
 	}
 
-	public function settingsInit()
+	public static function settingsInit()
 	{
 		$sett = self::$st->settings();
 		$sett->register();
 	}
 
-	public function load_textdomain()
+	public static function load_textdomain()
 	{
 		load_plugin_textdomain( 'simterm', FALSE, dirname( plugin_basename( __FILE__ ) ).'/languages/' );
 	}
 
 };
 
-SimTermLoader::Init();
+$simterminal = new SimTermLoader();
+$simterminal->Init();
+

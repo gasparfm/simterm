@@ -18,7 +18,7 @@ class SimTermSettings
 	{
 	}
 
-	private function __wakeup()
+	public function __wakeup()
 	{
 	}
 

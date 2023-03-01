@@ -19,16 +19,15 @@ class SimTerm
 		return $this->settings;
 	}
 
-	function simterm_shortcode($atts, $content="")
+	public function simterm_shortcode($atts, $content="")
 	{
 		$_lines = preg_split("/\r\n|\n|\r/", trim($content));
 		if (count($_lines)==0)
 			return;
-		add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
-		wp_enqueue_script('simterm-showyourterms', plugins_url('js/show-your-terms.min.js',__FILE__), array(), '20160705', true);
-		wp_enqueue_script('simterm-launcher', plugins_url('js/simterm.js',__FILE__), array('simterm-showyourterms'), '20160705', true);
-		wp_enqueue_style('simterm-showyourtermscss', plugins_url('css/show-your-terms.min.css', __FILE__), array(), '20160705', 'all');
-		wp_enqueue_style('simterm-extracss', plugins_url('css/simterm.css', __FILE__), array(), '20160705', 'all');
+		wp_enqueue_script('simterm-showyourterms', /* plugin_dir_url( __FILE__ ) . 'js/show-your-terms.min.js', */plugin_dir_url( __FILE__ ). 'js/show-your-terms.js', array(), '20160705', true);
+		wp_enqueue_script('simterm-launcher', plugin_dir_url( __FILE__ ).'js/simterm.js', array('simterm-showyourterms'), '20160705', true);
+		wp_enqueue_style ('simterm-showyourtermscss', plugin_dir_url( __FILE__ ).'css/show-your-terms.min.css', array(), '20160705','all');
+		wp_enqueue_style ('simterm-extracss', plugin_dir_url( __FILE__ ).'css/simterm.css', array(), '20160705', 'all');
 
 		$data=array('lines'=> array());
 		$commandPrep = get_option('simterm-command-prepend');
@@ -72,7 +71,7 @@ class SimTerm
 				$data['lines'][$i]['delay'] = $plainOutputDelay;
 		}
 
-		return SimTermView::render('live/syt', array('data' => $data));
+		return do_shortcode(SimTermView::render('live/syt', array('data' => $data)));
 	}
 
 	function fixDashes($content)
